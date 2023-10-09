@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.snackbar-usuario-nao-encontrado {
+  --mdc-snackbar-container-color: rgb(124, 7, 7) !important;
+}
+
+.snackbar-login-efetuado {
+  --mdc-snackbar-container-color: rgb(7, 124, 7) !important;
+}
+
+.snackbar-ususario-cadastrado {
+  --mdc-snackbar-container-color: rgb(7, 124, 7) !important;
+}

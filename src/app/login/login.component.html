@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="fundacao">
+    <img
+      class="texto-logo"
+      src="./../../assets/images/fundacao_logo-login.png"
+      alt=""
+    />
+  </div>
+  <div class="boxGeral">
+    <h2 class="login">Login</h2>
+    <div class="box">
+      <form class="example-form">
+        <div class="transparent">
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input
+              [(ngModel)]="email"
+              name="email"
+              type="email"
+              matInput
+              placeholder="Ex. pat@example.com"
+            />
+          </mat-form-field>
+        </div>
+        <div class="transparent">
+          <mat-form-field class="example-full-width">
+            <mat-label>Senha</mat-label>
+            <input
+              [(ngModel)]="senha"
+              name="senha"
+              type="password"
+              matInput
+              placeholder="******"
+            />
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+    <div class="boxButton">
+      <button mat-raised-button routerLink="/usuarios">Novo Usuário</button>
+      <button mat-raised-button (click)="login(email, senha)">Entrar</button>
+    </div>
+  </div>
+</div>

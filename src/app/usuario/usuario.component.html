@@ -1,0 +1,85 @@
+<div class="containerUsuario">
+  <div class="boxGeral">
+    <h1 class="titulo">Cadastrar novo usuário</h1>
+    <form [formGroup]="formulario">
+      <div>
+        <mat-form-field>
+          <mat-label>Nome</mat-label>
+          <input
+            matInput
+            [(ngModel)]="usuario.nome"
+            id="nome"
+            type="text"
+            formControlName="nome"
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            [(ngModel)]="usuario.email"
+            id="email"
+            type="email"
+            formControlName="email"
+          />
+
+          <mat-error
+            *ngIf="
+              formulario.get('email')?.errors &&
+              formulario.get('email')?.touched
+            "
+          >
+            Por favor insira um email válido.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>CPF</mat-label>
+          <input
+            matInput
+            [(ngModel)]="usuario.cpf"
+            id="cpf"
+            type="text"
+            formControlName="cpf"
+          />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <mat-label>Senha</mat-label>
+          <input
+            matInput
+            type="password"
+            [(ngModel)]="usuario.senha"
+            id="senha"
+            type="password"
+            formControlName="senha"
+          />
+          <mat-error
+            *ngIf="
+              formulario.get('senha')?.errors &&
+              formulario.get('senha')?.touched
+            "
+          >
+            Número de caracteres inválido
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="botao">
+        <button
+          class="cadast-btn"
+          (click)="salvar(usuario)"
+          mat-stroked-button
+          [disabled]="
+            formulario.get('email')?.errors || formulario.get('senha')?.errors
+          "
+        >
+          Cadastrar
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
