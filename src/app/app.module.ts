@@ -6,12 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
+import { ListaCursoComponent } from './lista-curso/lista-curso.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ListaCursoComponent,
+   
 
   ],
   imports: [

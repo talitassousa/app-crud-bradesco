@@ -1,3 +1,5 @@
+import { CursoService } from './../curso/curso.service';
+import { Curso } from './../models/curso';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -21,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private LoginService: LoginService,
+    private cursoService: CursoService,
     private router: Router,
     private route: ActivatedRoute,
     private usuarioService: UsuarioService,
@@ -56,6 +59,7 @@ export class LoginComponent implements OnInit {
         if (this.usuario != null) {
           this.loginEfetuado(this.message, this.action);
           setTimeout(() => {
+            this.cursoService.usuario = this.usuario
             this.router.navigate(['/cursos']);
           }, 2000);
           return;

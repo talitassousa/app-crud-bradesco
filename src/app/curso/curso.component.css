@@ -1,6 +1,6 @@
 .containerUsuario {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: rgb(18, 18, 75);
     background: linear-gradient(137deg, rgba(18, 18, 75, 1) 26%, rgba(150, 39, 39, 1) 100%);
 
@@ -10,7 +10,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
 }
 
 .lista {
@@ -22,12 +23,16 @@
 }
 
 .boxGeral {
+    word-wrap: break-word;
+    box-sizing: border-box;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     width: 300px;
     height: 400px;
+    padding: 5%;
     border-radius: 10px;
     background-image: url('/assets/images/bradesco-logo.jpg');
     box-shadow: 1px 2px 4px;
