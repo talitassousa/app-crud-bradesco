@@ -19,11 +19,11 @@ export class CursoService {
     return this.http.post<Curso>(`${this.url}`, curso);
   }
 
-  editarCurso(id: number, curso: Curso): Observable<Curso> {
+  editarCurso(id: string, curso: Curso): Observable<Curso> {
     return this.http.put<Curso>(`${this.url}/${id}`, curso);
   }
 
-  pesquisarPorId(id: number): Observable<Curso> {
+  pesquisarPorId(id: string): Observable<Curso> {
     return this.http.get<Curso>(`${this.url}/${id}`);
   }
 
@@ -31,7 +31,7 @@ export class CursoService {
     return this.http.get<Curso[]>(`${this.url}`);
   }
 
-  excluirCurso(id: number): Observable<Curso> {
+  excluirCurso(id: string): Observable<Curso> {
     return this.http.delete<Curso>(`${this.url}/${id}`);
   }
 }

@@ -1,6 +1,6 @@
 import { CursoService } from './../curso/curso.service';
 import { Curso } from './../models/curso';
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsuarioService } from '../usuario/usuario.service';
@@ -75,5 +75,22 @@ export class LoginComponent implements OnInit {
         console.log(err);
       },
     });
+  }
+
+  onEnterKeyPress() {
+    // Lógica a ser executada quando a tecla Enter for pressionada
+    document.getElementById("btFechar")?.click();
+  }
+
+  onCloseButtonClick() {
+    // Lógica a ser executada quando o botão de fechar for clicado
+    this.login(this.email, this.senha)
+  }
+  
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Enter') {
+      this.onEnterKeyPress();
+    }
   }
 }

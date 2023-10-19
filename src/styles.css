@@ -22,3 +22,7 @@ body {
 .snackbar-ususario-cadastrado {
   --mdc-snackbar-container-color: rgb(7, 124, 7) !important;
 }
+
+.snackbar-matricula-efetuada {
+  --mdc-snackbar-container-color: rgb(7, 124, 7) !important;
+}

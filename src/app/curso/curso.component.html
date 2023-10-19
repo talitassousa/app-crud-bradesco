@@ -8,19 +8,27 @@
   </div>
   <div class="containers">
     <div *ngFor="let curso of cursos">
-      <div class="boxGeral">
-        <h1 class="boxLocal">{{ curso.curso }}</h1>
-        <!-- <img class="imagem" src="./../../assets/images/matematica.jpg" alt="" /> -->
-        <p class="corParagrafo">
-          {{ curso.descricao }}
-          <!-- Matemática é uma ciência que utiliza conceitos e técnicas para a
-          formação de conhecimentos abstratos e concretos. -->
-        </p>
-        <div class="botao">
-          <button class="transparent" mat-raised-button>Matricular</button>
+      <div>
+        <div class="boxGeral">
+          <div class="tituloCard">
+            <h1 class="boxLocal">{{ curso.curso }}</h1>
+          </div>
+          <div class="paragrafoCard">
+            <p class="corParagrafo">
+              {{ curso.descricao }}
+            </p>
+          </div>
+          <div class="botao">
+            <button
+              class="transparent"
+              mat-raised-button
+              (click)="matricula(curso)"
+            >
+              Matricular
+            </button>
+          </div>
         </div>
       </div>
     </div>
-   
   </div>
 </div>

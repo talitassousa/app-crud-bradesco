@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ListaCursoComponent } from './lista-curso/lista-curso.component';
+import { ListaCursoComponent } from './curso/lista-curso/lista-curso.component';
 
 
 @NgModule({
