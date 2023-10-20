@@ -6,7 +6,6 @@ import { Usuario } from '../models/usuario';
 import { UsuarioService } from './../usuario/usuario.service';
 import { CursoService } from './curso.service';
 
-
 @Component({
   selector: 'app-curso',
   templateUrl: './curso.component.html',
@@ -37,10 +36,20 @@ export class CursoComponent implements OnInit {
   async matriculaEfetuada(message: string, action: string) {
     this.message = message;
     this.action = action;
-    message = 'Matricula Efetuada';
+    message = 'Matricula Efetuada!';
     this._snackBar.open(message, action, {
       duration: 1500,
       panelClass: 'snackbar-matricula-efetuada',
+    });
+  }
+
+  async cursoMatriculado(message: string, action: string) {
+    this.message = message;
+    this.action = action;
+    message = 'Curso já Cadastrado!';
+    this._snackBar.open(message, action, {
+      duration: 2000,
+      panelClass: 'snackbar-curso-matriculado',
     });
   }
 
@@ -87,23 +96,29 @@ export class CursoComponent implements OnInit {
   }
 
   matricula(curso: Curso) {
+    this.adicionaCursoAoUsuario(curso);
+
     this.usuarioService.editarUsuario(this.usuario.id, this.usuario).subscribe({
       next: (response) => {
-        this.adicionaCursoAoUsuario(curso)
+        this.usuario = response;
         console.log(this.usuario);
-        this.matriculaEfetuada(this.message, this.action);
-        setTimeout(() => {
-          this.cursoService.usuario = this.usuario
-        }, 2000);
       },
       error: (err) => {
         console.log(err);
-        alert('Erro ao tentar editar!');
+        this.cursoMatriculado(this.message, this.action);
+      },
+      complete: () => {
+        this.matriculaEfetuada(this.message, this.action);
       },
     });
+    this.excluirCursoDaMemoria();
   }
 
   adicionaCursoAoUsuario(curso: Curso) {
-    this.usuario?.cursos.push(curso);
+    this.usuario.cursos.push(curso);
+  }
+
+  excluirCursoDaMemoria() {
+    this.usuario.cursos.pop();
   }
 }
